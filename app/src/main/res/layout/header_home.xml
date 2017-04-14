@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/header_new"
+        android:padding="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="get最新"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/header_design"
+        android:padding="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="私人定制"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/header_hot"
+        android:padding="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="一周精选" />
+</LinearLayout>

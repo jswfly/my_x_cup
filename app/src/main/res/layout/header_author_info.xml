@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imgAuthorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/touxiang1"/>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imgAuthorHead"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:src="@mipmap/touxiang1"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="50dp"
+        app:riv_border_width="2dp"
+        app:riv_border_color="@color/white"
+        app:riv_mutate_background="true"
+        />
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imgAuthorHead"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="username"/>
+
+    <TextView
+        android:id="@+id/txtAuthorMotto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtAuthor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:maxEms="13"
+        android:textAlignment="center"
+        android:text="motto"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/txtAuthorMotto">
+        <LinearLayout
+            android:id="@+id/linWorks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtAuthorWorks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="作品"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toRightOf="@id/linWorks"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtAuthorFans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="被喜欢"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

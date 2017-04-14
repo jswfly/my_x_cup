@@ -1,0 +1,209 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="fragment.ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <include android:id="@+id/loginView"
+        android:visibility="gone"
+        layout="@layout/login" />
+
+
+    <LinearLayout
+        android:id="@+id/linInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_normal_sel"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgUserHead"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/head_holder_default"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="20dp"
+            app:riv_corner_radius="50dp"
+            app:riv_border_width="1dp"
+            app:riv_border_color="@color/gray6"
+            app:riv_mutate_background="true"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/txtUsername_my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtUsername_my"
+                android:text="积分"
+                android:textColor="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtUsername_my"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/text"
+                android:text="0"
+                android:textColor="@color/red" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp">
+
+        <LinearLayout
+            android:id="@+id/LinConcern"
+            style="@style/profile_fans_item">
+
+            <TextView
+                android:id="@+id/txtGzNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关注" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/gray4" />
+
+        <LinearLayout
+            android:id="@+id/LinFans"
+            style="@style/profile_fans_item" >
+
+            <TextView
+                android:id="@+id/txtFansNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="粉丝" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/gray4" />
+
+        <LinearLayout
+            android:id="@+id/LinVisitor"
+            style="@style/profile_fans_item">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="访客" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray5" />
+
+    <Button
+        android:id="@+id/collection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_favorite"
+        android:background="@drawable/button_normal_sel"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableRight="@mipmap/ic_next_pink"
+        android:text="我的收藏"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_comment"
+        android:background="@drawable/button_normal_sel"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableRight="@mipmap/ic_next_pink"
+        android:text="我的评论"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_qr_code"
+        android:background="@drawable/button_normal_sel"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableRight="@mipmap/ic_next_pink"
+        android:text="我的二维码"/>
+
+    <Button
+        android:id="@+id/customService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_custom_service"
+        android:background="@drawable/button_normal_sel"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableRight="@mipmap/ic_next_pink"
+        android:text="咨询客服"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/icon_more"
+        android:background="@drawable/button_normal_sel"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableRight="@mipmap/ic_next_pink"
+        android:text="更多"/>
+
+    <Button
+        android:id="@+id/btnLoginOff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:text="退出登录"
+        android:textColor="@drawable/login_off_text_sel"
+        android:background="@drawable/login_off_button_sel"/>
+</LinearLayout>

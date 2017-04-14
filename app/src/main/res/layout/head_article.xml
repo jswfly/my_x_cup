@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="title"/>
+
+    <com.jude.rollviewpager.RollPagerView
+        android:id="@+id/rollView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:rollviewpager_play_delay="5000"
+        app:rollviewpager_hint_gravity="center">
+
+    </com.jude.rollviewpager.RollPagerView>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="\t这是一个内容这是一个内容这是一个内容这是一个内容这是一个内容这是一个内容这是一个内容这是一个内容这是一个内容"/>
+
+</LinearLayout>

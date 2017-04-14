@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linArticle"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/imgArticleShow"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/image_holder_default"/>
+    <TextView
+        android:id="@+id/txtArticleTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="#内有福利#白色情人节如何“宠幸”男友?快戳进来！"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/txtIntroduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="handsome, 今晚我有个礼物送你哦"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:lines="1"
+        android:ellipsize="end"
+        android:textColor="@color/gray"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>

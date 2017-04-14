@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="10dp"
+              android:id="@+id/choiceness"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgHead"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/head_holder_default"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            app:riv_corner_radius="25dp"
+            app:riv_border_width="1dp"
+            app:riv_border_color="@color/gray5"
+            app:riv_mutate_background="true"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/txtCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小礼君"
+                android:lines="1"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017/3/1 11:11:11"
+                android:lines="1"
+                android:ellipsize="end"
+                android:paddingRight="20dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+        <RadioButton
+            android:id="@+id/rbPraise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:text="0"
+            android:textSize="16sp"
+            android:drawableRight="@drawable/praise_sel"
+            android:drawablePadding="10dp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="10dp"
+        android:text="这是一条评论，快把我顶上去,十分士大夫打发手动阀手动阀手动阀手动阀"
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+</LinearLayout>

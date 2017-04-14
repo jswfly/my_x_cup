@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_article"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.example.applicationtest2.ArticleActivity">
+
+    <!--<ListView
+        android:id="@+id/listArticle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/backgroundColor"
+        android:dividerHeight="2dp">
+    </ListView>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageButton
+            android:id="@+id/articleBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:src="@mipmap/back"/>
+
+        <RadioGroup
+            android:id="@+id/rgArticle"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imgLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/tabline_shape"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpArticlePager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/toComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_marginLeft="10dp"
+            android:text="评一下"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:drawableLeft="@mipmap/icon_sign"/>
+
+        <view.ClearEditText
+            android:id="@+id/myComment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_comment"
+            android:gravity="left"
+            android:maxLines="5"
+            android:maxLength="150"
+            android:visibility="gone"
+            android:hint="请输入评论"/>
+
+        <Button
+            android:id="@+id/sendMsg"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_normal_sel"
+            android:visibility="gone"
+            android:textColor="@color/pink"
+            android:layout_gravity="center"
+            android:text="发送"/>
+        <CheckBox
+            android:id="@+id/collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/collection_sel"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

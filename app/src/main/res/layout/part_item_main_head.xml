@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linAuthor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgHead"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/head_holder_default"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            app:riv_corner_radius="25dp"
+            app:riv_border_width="1dp"
+            app:riv_border_color="@color/gray5"
+            app:riv_mutate_background="true"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/txtAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小礼君"
+                android:lines="1"
+                android:textSize="17sp"/>
+            <TextView
+                android:id="@+id/txtAuthorMotto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="资深买买买达人"
+                android:lines="1"
+                android:ellipsize="end"
+                android:paddingRight="20dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+</LinearLayout>

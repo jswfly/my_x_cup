@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <RelativeLayout
+        android:id="@+id/ly_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/normal_title_background48dp">
+
+        <TextView
+            android:id="@+id/txtTop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="信息"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="2px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/gray" />-->
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rgMenu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbHome"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_home_sel"
+            android:checked="true"
+            android:text="@string/home"/>
+
+        <RadioButton
+            android:id="@+id/rbRank"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_rank_sel"
+            android:text="@string/rank"/>
+
+        <RadioButton
+            android:id="@+id/rbGift"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_gift_sel"
+            android:text="@string/gift"/>
+
+        <RadioButton
+            android:id="@+id/rbCategory"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_category_sel"
+            android:text="@string/category"/>
+
+        <RadioButton
+            android:id="@+id/rbProfile"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_profile_sel"
+            android:text="@string/profile"/>
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray"
+        android:layout_above="@id/rgMenu"/>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ly_top_bar"
+        android:layout_above="@id/rgMenu"
+        android:background="@color/transparent">
+    </FrameLayout>
+
+</RelativeLayout >

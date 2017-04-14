@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_fans"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.applicationtest2.FansActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/normal_title_background48dp">
+
+
+        <ImageButton
+            android:id="@+id/fansBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@mipmap/back"/>
+        <RadioGroup
+            android:id="@+id/rgStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:background="@drawable/tab_fans_left_sel"
+                android:gravity="center"
+                android:text="关注"
+                android:textColor="@drawable/fans_text_sel"
+                android:checked="false"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:background="@drawable/tab_fans_middle_sel"
+                android:gravity="center"
+                android:text="粉丝"
+                android:textColor="@drawable/fans_text_sel"
+                android:checked="false"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:background="@drawable/tab_fans_right_sel"
+                android:gravity="center"
+                android:text="访客"
+                android:textColor="@drawable/fans_text_sel"
+                android:checked="false"/>
+        </RadioGroup>
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1px"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/gray" />-->
+
+    </RelativeLayout>
+
+    <!--<view.PullToRefreshLayout
+        android:id="@+id/fansRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/refresh_head"/>
+        <view.PullableListView
+            android:id="@+id/listFans"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="@color/backgroundColor"
+            android:dividerHeight="3dp">
+        </view.PullableListView>
+        <include layout="@layout/load_more"/>
+    </view.PullToRefreshLayout>-->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+    </FrameLayout>
+
+</LinearLayout>

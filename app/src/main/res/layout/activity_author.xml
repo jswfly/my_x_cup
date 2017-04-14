@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_author"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.applicationtest2.AuthorActivity">
+
+    <!--<include layout="@layout/header_author_info"/>-->
+
+
+
+    <ListView
+        android:id="@+id/listAuthorWorks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@color/backgroundColor"
+        android:dividerHeight="10dp">
+
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/RelTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/normal_title_background48dp">
+        <ImageButton
+            android:id="@+id/authorBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/back_pink"/>
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
+            android:text="username"/>
+
+        <CheckBox
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like_sel"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>
