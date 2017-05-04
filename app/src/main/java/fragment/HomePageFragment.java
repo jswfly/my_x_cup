@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.applicationtest2.ArticleActivity;
@@ -34,6 +33,7 @@ import bean.ResponseList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import util.RetrofitUtil;
+import view.DrawableTextView;
 import view.PullToRefreshLayout;
 import view.PullableListView;
 
@@ -84,7 +84,7 @@ public class HomePageFragment extends Fragment implements MainListAdapter.Callba
             listview.addHeaderView(header);
 
             for (int i=0 ; i<header.getChildCount();i++) {
-                final TextView txt = (TextView) header.getChildAt(i);
+                final DrawableTextView txt = (DrawableTextView) header.getChildAt(i);
                 txt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -180,7 +180,8 @@ public class HomePageFragment extends Fragment implements MainListAdapter.Callba
                     R.mipmap.img1,
                     R.mipmap.img2,
                     R.mipmap.img3,
-                    R.mipmap.img4
+                    R.mipmap.img4,
+                    R.mipmap.img5
             };
 
             @Override

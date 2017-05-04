@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApplicationTest2.iml" filepath="$PROJECT_DIR$/ApplicationTest2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photopicker/photopicker.iml" filepath="$PROJECT_DIR$/photopicker/photopicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/rollviewpager/rollviewpager.iml" filepath="$PROJECT_DIR$/rollviewpager/rollviewpager.iml" />
       <module fileurl="file://$PROJECT_DIR$/rollviewpagerdome/rollviewpagerdome.iml" filepath="$PROJECT_DIR$/rollviewpagerdome/rollviewpagerdome.iml" />
     </modules>

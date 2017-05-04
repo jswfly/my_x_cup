@@ -17,10 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.applicationtest2.CollectionActicity;
+import com.example.applicationtest2.CollectionActivity;
 import com.example.applicationtest2.CustomServiceActivity;
 import com.example.applicationtest2.FansActivity;
 import com.example.applicationtest2.R;
+import com.example.applicationtest2.ReviseUserInfoActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -28,6 +29,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import DB.CupDB;
 import bean.Response;
 import bean.User;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import util.ImageLoaderUtil;
@@ -39,9 +44,12 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment implements View.OnClickListener{
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = "ProfileFragment";
+    @BindView(R.id.reviseUserInfo)
+    Button reviseUserInfo;
+    Unbinder unbinder;
     private View view;
     private View loginView;
     private Button btnLR, btnLoginOff, collectin, customService;
@@ -54,6 +62,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     private RoundedImageView imgUserHead;
     //是否时登陆界面
     private boolean isLoginView = true;
+
     public ProfileFragment() {
         // Required empty public constructor
         context = getContext();
@@ -70,19 +79,21 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         bindLogin();
         SharedPreferences pref = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
 //        Toast.makeText(getActivity(), pref.getString("username", "username"), Toast.LENGTH_SHORT).show();
-        if(pref.getBoolean("hasLogin", false)){
+        if (pref.getBoolean("hasLogin", false)) {
             loginView.setVisibility(View.GONE);
-            Telephone = pref.getString("telephone","");
-            Password = pref.getString("password","");
+            Telephone = pref.getString("telephone", "");
+            Password = pref.getString("password", "");
             initUserInfo();
-        }else{
+        } else {
 //            Toast.makeText(getActivity(), "本地登陆测试", Toast.LENGTH_SHORT).show();
             loginView.setVisibility(View.VISIBLE);
 
         }
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
-    private void bindProfile(){
+
+    private void bindProfile() {
         loginView = view.findViewById(R.id.loginView);
         btnLoginOff = (Button) view.findViewById(R.id.btnLoginOff);
         linConcern = (LinearLayout) view.findViewById(R.id.LinConcern);
@@ -104,7 +115,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         customService.setOnClickListener(this);
     }
 
-    private void bindLogin(){
+    private void bindLogin() {
         username = (ClearEditText) view.findViewById(R.id.editUserName);
         password = (ClearEditText) view.findViewById(R.id.editPassword);
         toRL = (TextView) view.findViewById(R.id.to_register_login);
@@ -116,18 +127,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.btn_login_register:
-                if(TextUtils.isEmpty(username.getText().toString())){
+                if (TextUtils.isEmpty(username.getText().toString())) {
                     Toast.makeText(getActivity(), "用户名不能为空!!!", Toast.LENGTH_SHORT).show();
-                    return ;
+                    return;
                 }
-                if(TextUtils.isEmpty(password.getText().toString())){
+                if (TextUtils.isEmpty(password.getText().toString())) {
                     Toast.makeText(getActivity(), "密码不能为空!!!", Toast.LENGTH_SHORT).show();
-                    return ;
+                    return;
                 }
                 CupDB db = CupDB.getInstance(getActivity());
-                if(isLoginView) {
+                if (isLoginView) {
 //                    if (db.CheckLogin(username.getText().toString(), password.getText().toString())) {
 //                        Toast.makeText(getActivity(), "登陆成功", Toast.LENGTH_SHORT).show();
 //                        SharedPreferences.Editor editor = getActivity().getSharedPreferences("userInfo",
@@ -143,15 +154,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     Telephone = username.getText().toString();
                     Password = password.getText().toString();
                     initUserInfo();
-                }else{
-                    if(db.RegisterUser(username.getText().toString(), password.getText().toString())) {
+                } else {
+                    if (db.RegisterUser(username.getText().toString(), password.getText().toString())) {
                         btnLR.setText("登陆");
                         btnLR.setTextColor(Color.WHITE);
                         btnLR.setBackgroundColor(getResources().getColor(R.color.gray2));
                         toRL.setText("还没有账号？");
                         isLoginView = true;
                         Toast.makeText(getActivity(), "注册成功φ(゜▽゜*)♪", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(getActivity(), "注册失败,用户名已存在/(ㄒoㄒ)/~~", Toast.LENGTH_SHORT).show();
                     }
                     /*AppService service = RetrofitUtil.getRetrofit().create(AppService.class);
@@ -185,13 +196,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 txtClean();
                 break;
             case R.id.to_register_login:
-                if(isLoginView){
+                if (isLoginView) {
                     btnLR.setText("注册");
                     btnLR.setTextColor(Color.RED);
                     btnLR.setBackgroundColor(getResources().getColor(R.color.pink));
                     toRL.setText("已有账号，去登陆");
                     isLoginView = false;
-                }else{
+                } else {
                     btnLR.setText("登陆");
                     btnLR.setTextColor(Color.WHITE);
                     btnLR.setBackgroundColor(getResources().getColor(R.color.gray2));
@@ -218,20 +229,22 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 FansActivity.actionStart(getContext(), 2);
                 break;
             case R.id.collection:
-                CollectionActicity.startAction(getContext());
+                CollectionActivity.startAction(getContext());
                 break;
             case R.id.customService:
                 CustomServiceActivity.startAction(getContext());
                 break;
         }
     }
-    private void txtClean(){
+
+    private void txtClean() {
         Telephone = username.getText().toString();
         Password = password.getText().toString();
         username.setText("");
         password.setText("");
     }
-    private void initUserInfo(){
+
+    private void initUserInfo() {
         Call<Response<User>> userCall = RetrofitUtil.service.toLogin(Telephone, Password);
 
         userCall.enqueue(new Callback<Response<User>>() {
@@ -239,18 +252,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
             public void onResponse(Call<Response<User>> call, retrofit2.Response<Response<User>> response) {
                 User data = response.body().getData();
                 boolean state = response.body().isStatus();
-                if(state){
+                if (state) {
 //                    Toast.makeText(getActivity(), "登陆成功", Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = getActivity().getSharedPreferences("userInfo",
-                            MODE_PRIVATE).edit() ;
+                            MODE_PRIVATE).edit();
                     //用户id
                     editor.putInt("userId", data.getCustomerid());
                     //用户名
-                    editor.putString("username", data.getCustomername()) ;
+                    editor.putString("username", data.getCustomername());
                     //密码
-                    editor.putString("password", Password) ;
+                    editor.putString("password", Password);
                     //用来确定是否登录
-                    editor.putBoolean("hasLogin", true) ;
+                    editor.putBoolean("hasLogin", true);
                     //用户头像地址
                     editor.putString("headImgUrl", data.getHeadimgurl());
                     //用户motto
@@ -266,16 +279,27 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     ImageLoader.getInstance().displayImage(data.getHeadimgurl(),
                             imgUserHead, options);
 //                                Log.d("login",data.getHeadimgurl());
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "登陆失败", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Response<User>> call, Throwable t) {
-                Toast.makeText(getActivity(), "访问失败"+t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "访问失败 "+t.getMessage());
+                Toast.makeText(getActivity(), "访问失败" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "访问失败 " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick(R.id.reviseUserInfo)
+    public void onViewClicked() {
+        ReviseUserInfoActivity.startAction(getActivity());
     }
 }

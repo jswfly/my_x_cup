@@ -4,30 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
-    <RelativeLayout
-        android:id="@+id/ly_top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/normal_title_background48dp">
-
-        <TextView
-            android:id="@+id/txtTop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="信息"
-            android:textColor="@color/gray"
-            android:textSize="18sp" />
-
-        <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="2px"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:background="@color/gray" />-->
-
-    </RelativeLayout>
 
     <RadioGroup
         android:id="@+id/rgMenu"
@@ -45,16 +21,16 @@
             android:text="@string/home"/>
 
         <RadioButton
-            android:id="@+id/rbRank"
+            android:id="@+id/rbDesign"
             style="@style/tab_menu_item"
-            android:drawableTop="@drawable/tab_rank_sel"
-            android:text="@string/rank"/>
+            android:drawableTop="@drawable/tab_design_sel"
+            android:text="@string/design"/>
 
         <RadioButton
-            android:id="@+id/rbGift"
+            android:id="@+id/rbForum"
             style="@style/tab_menu_item"
-            android:drawableTop="@drawable/tab_gift_sel"
-            android:text="@string/gift"/>
+            android:drawableTop="@drawable/tab_forum_sel"
+            android:text="@string/forum"/>
 
         <RadioButton
             android:id="@+id/rbCategory"
@@ -80,7 +56,6 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/ly_top_bar"
         android:layout_above="@id/rgMenu"
         android:background="@color/transparent">
     </FrameLayout>

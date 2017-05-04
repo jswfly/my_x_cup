@@ -26,6 +26,7 @@ public class FansActivity extends FragmentActivity implements View.OnClickListen
         intent.putExtra("state", state);
         context.startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

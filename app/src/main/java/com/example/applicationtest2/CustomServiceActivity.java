@@ -1,9 +1,9 @@
 package com.example.applicationtest2;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +18,7 @@ import Adapter.CustomServiceAdapter;
 import bean.Msg;
 import view.ClearEditText;
 
-public class CustomServiceActivity extends AppCompatActivity implements View.OnClickListener{
+public class CustomServiceActivity extends Activity implements View.OnClickListener{
 
     private ListView listView;
     private List<Msg> msgList;
@@ -26,6 +26,7 @@ public class CustomServiceActivity extends AppCompatActivity implements View.OnC
     private ImageButton back;
     private Button send;
     private ClearEditText content;
+
     public static void startAction(Context context){
         Intent intent = new Intent(context, CustomServiceActivity.class);
         context.startActivity(intent);

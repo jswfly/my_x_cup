@@ -12,7 +12,9 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
     <color name="red">#ff0000</color>
-    <color name="red2">#FF6A6A</color>
+    <color name="red2">#df2525</color>
+    <color name="red3">#FF6A6A</color>
+    <color name="red4">#ef71a1</color>
     <color name="backgroundColor">#f0f0f0</color>
     <color name="black">#000000</color>
     <color name="pink">	#ffffc0cb</color>
@@ -24,4 +26,5 @@
     <color name="bg3">#e15a64</color>
     <color name="bg4">#abbd83</color>
     <color name="bg5">#859b87</color>
+    <color name="photopicker_background">#181819</color>
 </resources>

@@ -1,12 +1,19 @@
 package util;
 
+import java.util.Map;
+
 import bean.Comment;
 import bean.ModelList;
 import bean.Response;
 import bean.ResponseList;
 import bean.User;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 /**
@@ -51,5 +58,29 @@ public interface AppService {
     @GET("adfans")
     Call<Response<String>> insertLike(@Query("ownerid") int ownerid, @Query("followedid") int followedid,
                                          @Query("method") int method);
+
+    /**
+     * 上传一张图片
+     * @param description
+     * @param imgs
+     * @return
+     */
+    @Multipart
+    @POST("upload")
+    Call<Response<String>> uploadImage(@Part("fileName") String description,
+                             @Part("file\"; filename=\"image.png\"") RequestBody imgs);
+
+    /**
+     * 简便写法
+     * @param description
+     * @param imgs1
+     * @return
+     */
+    @Multipart
+    @POST("upload")
+    Call<Response<String>> uploadImage(@Part("description") String description,@PartMap
+            Map<String, RequestBody> imgs1);
+
+
 
 }

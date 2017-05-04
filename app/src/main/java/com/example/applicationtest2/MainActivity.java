@@ -13,19 +13,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import fragment.CategoryFragment;
-import fragment.GiftFragment;
+import fragment.ForumFragment;
 import fragment.HomeFragment;
 import fragment.ProfileFragment;
-import fragment.RankFragment;
+import fragment.DesignFragment;
 
 public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
 
     private TextView txtTop;
     private RadioGroup rgTab;
-    private RadioButton rbHome, rbgift, rbcategory, rbprofile, rbRank;
+    private RadioButton rbHome, rbForum, rbcategory, rbprofile, rbDesign;
     private HomeFragment homeFragment;
-    private RankFragment rankFragment;
-    private GiftFragment giftFragment;
+    private DesignFragment designFragment;
+    private ForumFragment forumFragment;
     private CategoryFragment categoryFragment;
     private ProfileFragment profileFragment;
     private FragmentManager manager;
@@ -44,12 +44,12 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
     }
 
     private void bindView() {
-        txtTop = (TextView) findViewById(R.id.txtTop);
+//        txtTop = (TextView) findViewById(R.id.txtTop);
         rgTab = (RadioGroup) findViewById(R.id.rgMenu);
 
         rbHome = (RadioButton) findViewById(R.id.rbHome);
-        rbRank = (RadioButton) findViewById(R.id.rbRank);
-        rbgift = (RadioButton) findViewById(R.id.rbGift);
+        rbDesign = (RadioButton) findViewById(R.id.rbDesign);
+        rbForum = (RadioButton) findViewById(R.id.rbForum);
         rbcategory = (RadioButton) findViewById(R.id.rbCategory);
         rbprofile = (RadioButton) findViewById(R.id.rbProfile);
         rgTab.setOnCheckedChangeListener(this);
@@ -68,25 +68,25 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 }else{
                     ft.show(homeFragment);
                 }
-                txtTop.setText(getResources().getString(R.string.home));
+//                txtTop.setText(getResources().getString(R.string.home));
                 break;
-            case R.id.rbRank:
-                if(rankFragment==null){
-                    rankFragment = new RankFragment();
-                    ft.add(R.id.fragment_container,rankFragment);
+            case R.id.rbDesign:
+                if(designFragment == null){
+                    designFragment = new DesignFragment();
+                    ft.add(R.id.fragment_container, designFragment);
                 }else{
-                    ft.show(rankFragment);
+                    ft.show(designFragment);
                 }
-                txtTop.setText(getResources().getString(R.string.rank));
+//                txtTop.setText(getResources().getString(R.string.rank));
                 break;
-            case R.id.rbGift:
-                if(giftFragment==null){
-                    giftFragment = new GiftFragment();
-                    ft.add(R.id.fragment_container,giftFragment);
+            case R.id.rbForum:
+                if(forumFragment == null){
+                    forumFragment = new ForumFragment();
+                    ft.add(R.id.fragment_container, forumFragment);
                 }else{
-                    ft.show(giftFragment);
+                    ft.show(forumFragment);
                 }
-                txtTop.setText(getResources().getString(R.string.gift));
+//                txtTop.setText(getResources().getString(R.string.gift));
                 break;
             case R.id.rbCategory:
                 if(categoryFragment==null){
@@ -95,7 +95,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 }else{
                     ft.show(categoryFragment);
                 }
-                txtTop.setText(getResources().getString(R.string.category));
+//                txtTop.setText(getResources().getString(R.string.category));
                 break;
             case R.id.rbProfile:
                 if(profileFragment==null){
@@ -104,7 +104,7 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 }else{
                     ft.show(profileFragment);
                 }
-                txtTop.setText(getResources().getString(R.string.profile));
+//                txtTop.setText(getResources().getString(R.string.profile));
                 break;
         }
         ft.commit();
@@ -115,11 +115,11 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         if(homeFragment!=null){
             ft.hide(homeFragment);
         }
-        if(rankFragment!=null){
-            ft.hide(rankFragment);
+        if(designFragment !=null){
+            ft.hide(designFragment);
         }
-        if(giftFragment!=null){
-            ft.hide(giftFragment);
+        if(forumFragment !=null){
+            ft.hide(forumFragment);
         }
         if(categoryFragment!=null){
             ft.hide(categoryFragment);
@@ -145,5 +145,18 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void toCategory(){
+        FragmentTransaction ft = manager.beginTransaction();
+        hideAllFragment(ft);
+        if(categoryFragment==null){
+            categoryFragment = new CategoryFragment();
+            ft.add(R.id.fragment_container,categoryFragment);
+        }else{
+            ft.show(categoryFragment);
+        }
+        ft.commit();
+        rbcategory.setChecked(true);
     }
 }

@@ -1,1 +1,2 @@
-include ':app', ':rollviewpagerdome', ':rollviewpager'
+include ':app', ':rollviewpagerdome', ':rollviewpager', ':photopicker'
+//include ':app', ':photopicker', ":photopickerdemo"

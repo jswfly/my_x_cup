@@ -26,7 +26,7 @@ public class MyApplication extends Application {
 
     private static void initImageLoader(Context context) {
         //缓存文件夹路径
-        File cachedir = StorageUtils.getOwnCacheDirectory(context, "MyCup/imageLoader/Cache");
+        File cachedir = StorageUtils.getOwnCacheDirectory(context, "Android/data/com.example.applicationtest2/cache/imageLoaderCache");
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
                 // 内存缓存的设置选项 (最大图片宽度,最大图片高度) 默认当前屏幕分辨率
                 .memoryCacheExtraOptions(480, 800) // max width, max height，即保存的每个缓存文件的最大长宽

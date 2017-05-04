@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.applicationtest2">
+    package="com.example.applicationtest2">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" android:required="false"/>
+    <!--使用相机资源权限-->
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:name=".MyApplication"
@@ -13,37 +16,36 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="util.GlideConfig"
+            android:value="GlideModule" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FansActivity"/>
-        <activity android:name=".AuthorActivity"/>
-        <activity android:name=".ArticleActivity"/>
-        <!-- <receiver android:name="broadcast.uninstallReceiver" > -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.PACKAGE_ADDED" /> -->
-        <!-- <action android:name="android.intent.action.PACKAGE_REMOVED" /> -->
+        <activity android:name=".FansActivity" />
+        <activity android:name=".AuthorActivity" />
+        <activity android:name=".ArticleActivity" />
+        <activity android:name=".CustomServiceActivity" />
+        <activity android:name=".CollectionActivity" />
+        <activity android:name=".ShowImageActivity" />
+        <activity
+            android:name=".ForumDetailActivity"
+            android:theme="@style/ForumDetailTheme" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".AddForumActivity" />
+        <activity android:name=".ReviseUserInfoActivity"></activity>
 
-
-        <!-- <data android:scheme="package" /> -->
-        <!-- </intent-filter> -->
-        <!-- </receiver> -->
-        <activity android:name=".CustomServiceActivity">
-        </activity>
-        <!--
- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
-        <activity android:name=".CollectionActicity">
-        </activity>
+        <activity
+            android:name="com.lidong.photopicker.PhotoPickerActivity"
+            android:theme="@style/PhotoPickerTheme"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.lidong.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme"/>
     </application>
 
 </manifest>

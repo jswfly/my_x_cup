@@ -2,20 +2,39 @@ package fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.applicationtest2.R;
+import com.example.applicationtest2.SearchActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 
-public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeListener*/{
+public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeListener*/ {
 
+    private static final String TAG = "HomeFragment";
     private Context context;
     private View view;
+    private Unbinder unbinder;
+
+    @BindView(R.id.fragmentTitle)
+    TextView fragmentTitle;
+    @BindView(R.id.containPage)
+    FrameLayout containPage;
+    @BindView(R.id.imgBtnSearch)
+    ImageButton imgBtnSearch;
 
 //    private HorizontalScrollView hsvHomeTab;
 //    private RadioGroup rgHome;
@@ -42,20 +61,22 @@ public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
+        unbinder = ButterKnife.bind(this, view);
 //------------------------------------------
         HomePageFragment page = new HomePageFragment();
-        Bundle bundle=new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putString("type", "精选");
-        bundle.putInt("page", 0) ;
+        bundle.putInt("page", 0);
         page.setArguments(bundle);
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-        ft.add(R.id.containPage,page);
+        ft.add(R.id.containPage, page);
         ft.show(page);
         ft.commit();
         //----------------------------------------------------------------
 //        initView();
         return view;
     }
+
 
     /**
      * 获取下划线的长度
@@ -67,8 +88,8 @@ public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeLi
 //        display.getMetrics(outMetrics);
 //        mScreet = outMetrics.widthPixels / 4;
         *//**
-         * 获取控件控件的宽度，因为在create中不能获取，所以要监听
-         *//*
+     * 获取控件控件的宽度，因为在create中不能获取，所以要监听
+     *//*
 
         final int size = rgHome.getChildCount();
 
@@ -193,10 +214,11 @@ public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeLi
 
     @Override
     public void onPageSelected(int position) {
-        *//**
-         * 滑动ViewPager时调整ScroollView的位置以便显示按钮
-         * @param position
-         *//*
+        */
+
+    /**
+     * 滑动ViewPager时调整ScroollView的位置以便显示按钮
+     *//*
         mCurrentPageIndex = position;
         RadioButton rb=(RadioButton)rgHome.getChildAt(position);
         rb.setChecked(true);
@@ -219,4 +241,18 @@ public class HomeFragment extends Fragment /*implements ViewPager.OnPageChangeLi
     public void onPageScrollStateChanged(int state) {
 
     }*/
+
+
+    @OnClick(R.id.imgBtnSearch)
+    public void onViewClicked() {
+        Intent intent = new Intent(getActivity(), SearchActivity.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+
 }

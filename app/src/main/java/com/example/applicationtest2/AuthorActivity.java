@@ -158,9 +158,9 @@ public class AuthorActivity extends Activity implements AdapterView.OnItemClickL
                     }
                     //设置返回键颜色
                     if(scrollTop>300) {
-                        imgBack.setImageResource(R.mipmap.back_black);
+                        imgBack.setBackgroundResource(R.mipmap.back_black);
                     }else {
-                        imgBack.setImageResource(R.mipmap.back_pink);
+                        imgBack.setBackgroundResource(R.mipmap.back_pink);
                     }
 
                     lastpoint = scrollTop;
